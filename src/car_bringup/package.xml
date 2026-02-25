@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>car_bringup</name>
+  <version>0.1.0</version>
+  <description>Bringup package that launches camera, lidar, description/RViz, detectors, hardware nodes, and the Simulink-generated perception+control node.</description>
+
+  <maintainer email="shahzad.rasheed@students.fh-wels.at">Shahzad Rasheed</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Launch / utils -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- Runtime packages included/started by this launch (declare as exec_depend) -->
+  <exec_depend>pylon_ros2_camera_wrapper</exec_depend>
+  <exec_depend>rplidar_ros</exec_depend>
+  <exec_depend>car_description</exec_depend>
+  <exec_depend>cone_detector</exec_depend>
+  <exec_depend>ultrasonic_sensor</exec_depend>
+  <exec_depend>wheel_encoder</exec_depend>
+  <exec_depend>drive_control</exec_depend>
+  <exec_depend>odometry_publisher</exec_depend>
+  <exec_depend>perception_control_1_0</exec_depend>
+
+  <!-- Optional: message/interface packages if your nodes require them at runtime -->
+  <!-- <exec_depend>sensor_msgs</exec_depend> -->
+  <!-- <exec_depend>geometry_msgs</exec_depend> -->
+  <!-- <exec_depend>vision_msgs</exec_depend> -->
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

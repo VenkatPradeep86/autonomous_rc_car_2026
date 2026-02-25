@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>car_description</name>
+  <version>0.4.0</version>
+  <description>URDF description package for the car</description>
+
+  <maintainer email="shahzad.rasheed@students.fh-wels.at">Shahzad Rasheed</maintainer>
+  <license>BSD</license>
+
+  <!-- Required build dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies needed at build and run time -->
+  <depend>ros2launch</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>rviz2</depend>
+
+  <!-- If you plan to use URDF check tools -->
+  <depend>urdf</depend>
+
+  <!-- Export build type -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

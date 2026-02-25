@@ -1,0 +1,16 @@
+<package format="3">
+  <name>wheel_encoder</name>
+  <version>0.1.0</version>
+  <description>ROS 2 package for reading wheel encoder data from Arduino</description>
+  <maintainer email="shahzad.rasheed@students.fh-wels.at">Shahzad Rasheed</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

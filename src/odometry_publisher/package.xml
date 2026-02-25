@@ -1,0 +1,17 @@
+<package format="3">
+  <name>odometry_publisher</name>
+  <version>0.0.1</version>
+  <description>Odometry calculation for a car</description>
+  <maintainer email="shahzad.rasheed@students.fh-wels.at">Shahzad Rasheed</maintainer>
+  <license>Apache License 2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf_transformations</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

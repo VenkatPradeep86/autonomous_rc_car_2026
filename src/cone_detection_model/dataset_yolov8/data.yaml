@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['blue_cone', 'yellow_cone']
+
+roboflow:
+  workspace: cone-detection-maygw
+  project: cone_detection-klgik
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/cone-detection-maygw/cone_detection-klgik/dataset/3

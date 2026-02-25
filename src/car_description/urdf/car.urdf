@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<robot name="car">
+
+   <material name="car_material">
+      <color rgba="0.2 0.2 0.2 1.0"/>
+   </material>
+  
+
+  
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.055" rpy="0.0 0.0 3.14"/>
+      <geometry>
+        <mesh filename="package://car_description/meshes/Body.stl" scale="0.0012 0.0012 0.0012"/>
+      </geometry>
+      <material name="car_material"/>
+     
+    </visual>
+  </link>
+
+  <link name="base_footprint">
+  </link>
+
+  <joint name="joint_footprint" type="fixed">
+    <origin xyz="0.0 0.0 0.04" rpy="0.0 0.0 0.0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="pylon_camera">
+    <visual>
+      <geometry>
+        <cylinder radius="0.015" length="0.03"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_camera" type="fixed">
+    <origin xyz="0.09 0.0 0.16" rpy="-1.57075 0.0 -1.57075"/>
+    <parent link="base_link"/>
+    <child link="pylon_camera"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+
+  <link name="laser">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.04"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_laser" type="fixed">
+    <origin xyz="0.27 0.0 0.02" rpy="3.1415 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="laser"/>
+  </joint>
+
+  <link name="imu">
+    <visual>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_imu" type="fixed">
+    <origin xyz="-0.25 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="imu"/>
+  </joint>
+
+  <link name="us_left">
+  </link>
+
+  <joint name="joint_us_left" type="fixed">
+    <origin xyz="0.1 0.15 0.01" rpy="0.0 0.0 1.57075"/>
+    <parent link="base_link"/>
+    <child link="us_left"/>
+  </joint>
+
+  <link name="us_right">
+  </link>
+
+  <joint name="joint_us_right" type="fixed">
+    <origin xyz="0.1 -0.15 0.01" rpy="0.0 0.0 -1.57075"/>
+    <parent link="base_link"/>
+    <child link="us_right"/>
+  </joint>
+
+  <link name="us_rear_center">
+  </link>
+
+  <joint name="joint_us_rear_center" type="fixed">
+    <origin xyz="-0.3 0 0.01" rpy="0.0 0.0 3.1415"/>
+    <parent link="base_link"/>
+    <child link="us_rear_center"/>
+  </joint>
+
+  <link name="us_rear_left">
+  </link>
+
+  <joint name="joint_us_rear_left" type="fixed">
+    <origin xyz="-0.3 0.12 0.01" rpy="0.0 0.0 2.62"/>
+    <parent link="base_link"/>
+    <child link="us_rear_left"/>
+  </joint>
+
+  <link name="us_rear_right">
+  </link>
+
+  <joint name="joint_us_rear_right" type="fixed">
+    <origin xyz="-0.3 -0.12 0.01" rpy="0.0 0.0 -2.62"/>
+    <parent link="base_link"/>
+    <child link="us_rear_right"/>
+  </joint>
+    
+    <!-- Front Left Wheel (Fixed or Steerable) -->
+  <link name="left_front_wheel">
+      <visual>
+       <geometry>
+        <mesh filename="package://car_description/meshes/Wheel_Left.stl" scale="0.0012 0.0012 0.0012"/>
+      </geometry>
+      <material name="car_material"/>
+    </visual>
+  </link>
+
+  <joint name="left_front_wheel_joint" type="continuous">
+    <origin xyz="0.2 0.12 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="left_front_wheel"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Front Right Wheel (Fixed or Steerable) -->
+  <link name="right_front_wheel">
+    <visual>
+       <geometry>
+        <mesh filename="package://car_description/meshes/Wheel_Right.stl" scale="0.0012 0.0012 0.0012"/>
+      </geometry>
+      <material name="car_material"/>
+    </visual>
+  </link>
+
+  <joint name="right_front_wheel_joint" type="continuous">
+    <origin xyz="0.2 -0.12 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="right_front_wheel"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Rear Left Wheel (With Encoder) -->
+  <link name="left_rear_wheel">
+   <visual>
+       <geometry>
+        <mesh filename="package://car_description/meshes/Wheel_Left.stl" scale="0.0012 0.0012 0.0012"/>
+      </geometry>
+      <material name="car_material"/>
+    </visual>
+  </link>
+
+  <joint name="left_rear_wheel_joint" type="continuous">
+    <origin xyz="-0.2 0.12 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="left_rear_wheel"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Rear Right Wheel (With Encoder) -->
+  <link name="right_rear_wheel">
+     <visual>
+       <geometry>
+        <mesh filename="package://car_description/meshes/Wheel_Right.stl" scale="0.0012 0.0012 0.0012"/>
+      </geometry>
+      <material name="car_material"/>
+    </visual>
+  </link>
+
+  <joint name="right_rear_wheel_joint" type="continuous">
+    <origin xyz="-0.2 -0.13 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="right_rear_wheel"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+
+</robot>
